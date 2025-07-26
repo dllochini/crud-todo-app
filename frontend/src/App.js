@@ -27,7 +27,7 @@ function App() {
 
           //listing out an array (todos)
           todos.map((todo) => (
-            <div>
+            <div className='todos'>
 
               <p>{todo.task}</p>
               <p>{todo.status ? "completed" : "pending"}</p>

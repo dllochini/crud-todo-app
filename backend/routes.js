@@ -13,10 +13,10 @@ router.get("/todos", async (req, res) => {
 //create new task and save it to the db
 router.post("/todos", async (req, res) => {
     // res.status(200).json({ msg: "POST todos /api/todos" });
+    const task = req.body.task;
     if (!task) {
         res.status(400).json({ msg: "Task is reqiured" })
     } else {
-        const task = req.body.task;
         const newTodo = new Todo({ task: task })
         await newTodo.save();
         res.status(201).json(newTodo);

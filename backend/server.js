@@ -14,10 +14,10 @@ app.use("/api", routes); // the router in the js file is prefeixed with /api
 
 const connectDB = require("./connectDb");
 
-// test route
+/* test route
 // app.get("/hello", (req,res) => {
 //     res.status(200).json({msg:"Hello World"}) //respond with status 200(OK) and the message given.
-// })
+ })*/
 
 //initialize backend port number as port 
 const port = 5000;
