@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const toDoSchema = new mongoose.Schema({
-    todo: {
+    task: {
         type: String,
-        required,
+        required: false,
     },
-    status: {type: Boolean, default: flase},
+    status: {type: Boolean, default: false},
 })
 
 const todo = mongoose.model("todo", toDoSchema);

@@ -49,4 +49,5 @@ YarlInsight 2.0 - Hands-on : Backend Development (MongoDB, Node.js &amp; Express
 ## connect backend with db
 create .env file
 
+npm i cors - cross origin
 

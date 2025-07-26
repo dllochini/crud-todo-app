@@ -1,16 +1,27 @@
 const express = require('express');
+const Todo = require("./models/todo")
 
 //create route instance
 const router = express.Router();
 
 //retrieve details from db
-router.get("/todos", (req, res) => {
-    res.status(200).json({ msg: "GET todos /api/todos" });
+router.get("/todos", async (req, res) => {
+    const todos = await Todo.find();
+    res.status(200).json(todos);
 })
 
 //create new task and save it to the db
-router.post("/todos", (req, res) => {
-    res.status(200).json({ msg: "POST todos /api/todos" });
+router.post("/todos", async (req, res) => {
+    // res.status(200).json({ msg: "POST todos /api/todos" });
+    if (!task) {
+        res.status(400).json({ msg: "Task is reqiured" })
+    } else {
+        const task = req.body.task;
+        const newTodo = new Todo({ task: task })
+        await newTodo.save();
+        res.status(201).json(newTodo);
+    }
+
 })
 
 //edit a task and save back to the db
