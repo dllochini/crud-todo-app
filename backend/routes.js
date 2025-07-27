@@ -30,8 +30,12 @@ router.put("/todos/:id", (req, res) => {
 })
 
 //delete a task
-router.delete("/todos/:id", (req, res) => {
-    res.status(200).json({ msg: "DELETE todos /api/todos" });
+router.delete("/todos/:id", async (req, res) => {
+    // res.status(200).json({ msg: "DELETE todos /api/todos" });
+
+    const {id} =req.params;
+    await Todo.findByIdAndDelete(id);
+    res.status(200).json({ msg: "Todo deleted successfully" });
 })
 
 module.exports = router;
